@@ -52,7 +52,7 @@ app.factory('authService', function ($http, baseServiceUrl) {
 
 		getAuthHeaders: function() {
 			var headers = {};
-			var currentUser = sessionStorage['currentUser'];
+			var currentUser = this.getCurrentUser();
 			if(currentUser){
 				headers['Authorization'] = 'Bearer ' + currentUser.access_token;
 			}
