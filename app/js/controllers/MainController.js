@@ -1,9 +1,16 @@
 'use strict';
 
-app.controller('MainController', function ($scope, authService) {
-	$scope.welcomeMessage = "Welcome to the Project!";
+app.controller('MainController', function ($scope, $window, authService, notifyService) {
+	$scope.anonymousUser = authService.isAnonymous();
+	$scope.loggedUser = authService.isLoggedIn();
 
-	// make authService available from every point of the app
-	//$scope.authService = authService;
+    $scope.logout = function() {
+	    authService.logout();
+	    notifyService.showInfo("You logged out.");
+	    setTimeout(function() { 
+	    	$window.location.reload('/'); 
+	    }, 2000);
+	   
+    };
 
 });

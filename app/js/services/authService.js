@@ -14,9 +14,7 @@ app.factory('authService', function ($http, baseServiceUrl) {
 					sessionStorage['currentUser'] = JSON.stringify(data);
 					success(data);
 				})
-				.error(function (err) {
-					error(err);
-				});
+				.error(error);
 		},
 
 		register: function (userData, success, error) {
@@ -30,9 +28,7 @@ app.factory('authService', function ($http, baseServiceUrl) {
 					sessionStorage['currentUser'] = JSON.stringify(data);
 					success(data);
 				})
-				.error(function (err) {
-					console.log(err);
-				});
+				.error(error);
 		}, 
 
 		logout: function() {

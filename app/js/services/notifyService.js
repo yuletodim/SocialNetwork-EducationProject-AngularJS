@@ -9,7 +9,7 @@ app.factory('notifyService', function () {
 				text: msg,
 				type: 'info',
 				layout: 'topCenter',
-				timeout: 1000
+				timeout: 2000
 			});
 		},
 

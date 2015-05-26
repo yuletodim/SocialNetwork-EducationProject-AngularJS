@@ -1,18 +1,21 @@
-<!-- Two different home view depending if there is or there is not a logged user-->
-
-<div class="container">
+<!-- Load user home page for anonymous user -->
+<div class="container" ng-if="anonymousUser">
 	<header ng-include="'templates/partials/header.html'"></header>
-
 	<div class="row">
 		<!-- Login form -->
 		<div ng-include="'templates/partials/login.html'"></div>
 
 		<!-- Register form -->
 		<div ng-include="'templates/partials/register.html'"></div>
-		
 	</div>
-
 	<footer ng-include="'templates/partials/footer.html'"></footer>
+</div>
+
+<!-- Load user home page for logged user -->
+<div class="container" ng-if="loggedUser">
+	<header ng-include="'templates/partials/userHeader.html'"></header>
+	<div ng-include="'templates/partials/pageTitle.html'"></div>
+
 </div>
 
 

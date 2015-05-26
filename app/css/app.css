@@ -3,3 +3,56 @@ header h1, h4{
 	text-align: center;
 	vertical-align: center;
 }
+
+.jumbotron{
+	border: solid 1px #DF691A;
+}
+
+#userHeader{
+	background-image: url("../img/newsBigImg.png");
+	background-repeat: no-repeat;
+    background-position: right top;
+}
+
+.iconButtons{
+	padding: 0;
+	width: 35px;
+	height: 40px;
+	margin-right: 4px;
+}
+
+#people{
+	background-image: url("../img/people.png");
+	background-repeat: no-repeat;
+	background-position: left 5px;
+}
+
+#people:hover{
+	background-image: url("../img/peopleHover.png");
+	background-repeat: no-repeat;
+	background-position: left 5px;
+}
+
+#settings{
+	background-image: url("../img/settings.png");
+	background-repeat: no-repeat;
+	background-position: left 5px;
+}
+
+#settings:hover{
+	background-image: url("../img/settingsHover.png");
+	background-repeat: no-repeat;
+	background-position: left 5px;
+}
+
+#key{
+	background-image: url("../img/key.png");
+	background-repeat: no-repeat;
+	background-position: left 5px;
+}
+
+#key:hover{
+	background-image: url("../img/keyHover.png");
+	background-repeat: no-repeat;
+	background-position: left 5px;
+}
