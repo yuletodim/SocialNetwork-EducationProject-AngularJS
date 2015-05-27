@@ -56,3 +56,25 @@ header h1, h4{
 	background-repeat: no-repeat;
 	background-position: left 5px;
 }
+
+.news, .friends{
+	  list-style-type: none;
+	  padding: 0;
+}
+
+.friends{
+	margin: 0;
+}
+
+.friends>h3{
+	margin: 0;
+}
+
+.friends>li{
+	margin-top: 10px;
+	border: 1px solid #DF691A;
+}
+
+.friends img{
+	margin-right: 10px;
+}
