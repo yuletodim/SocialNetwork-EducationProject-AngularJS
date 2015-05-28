@@ -10,6 +10,11 @@ app.config(function ($routeProvider) {
 		templateUrl: 'templates/home.html',
 	});
 
+	$routeProvider.when('/profile', {
+		templateUrl: 'templates/user/editProfile.html',
+		controller: 'EditProfileController'
+	});
+
 	$routeProvider.when('/profile/password', {
 		templateUrl: 'templates/user/changePassword.html',
 		controller: 'ChangePasswordController'

@@ -4,9 +4,9 @@
 			<h3>Friends - <a href="#/">{{countFriends}}</a> total</h2>
 			<li ng-repeat="friend in friendsPreview">
 				<!-- save id or username?? in order to work with the user/friend later -->
-					<img src="img/userImg.png" alt="userImage"ng-if="!friend.profileImageData">
-					<img src="friend.profileImageData" alt="userImage"ng-if="frined.profileImageData">
-					{{friend.name}}
+					<img src="img/userImg.png" alt="userImage" ng-if="friend.profileImageData == null">
+					<img src="{{friend.profileImageData}}" alt="userImage" ng-if="friend.profileImageData != null">
+					<a href="#//users/:username">{{friend.name}}</a>
 			</li>
 		</ul>
 	</div>

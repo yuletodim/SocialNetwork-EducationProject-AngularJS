@@ -29,6 +29,26 @@ app.factory('userService', function ($http, baseServiceUrl, authService) {
 			$http(request).success(success).error(error);
 		},
 
+		getFullDataUser: function (success, error) {
+			var request = {
+				method: 'GET',
+				url: baseServiceUrl + '/api/me',
+				headers: authService.getAuthHeaders()
+			};
+
+			$http(request).success(success).error(error);
+		},
+
+		editProfile: function (userData, success, error) {
+			var request = {
+				method: 'PUT',
+				url: baseServiceUrl + '/api/me',
+				headers: authService.getAuthHeaders(),
+				data: userData
+			};
+			$http(request).success(success).error(error);
+		},
+
 		changePassword: function (userData, success, error) {
 			var request = {
 				method: 'PUT',

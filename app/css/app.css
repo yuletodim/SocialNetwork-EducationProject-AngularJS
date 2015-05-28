@@ -77,4 +77,56 @@ header h1, h4{
 
 .friends img{
 	margin-right: 10px;
+	width: 55px;
+	height: 55px;
 }
+
+.friends a{
+	color: white;
+}
+
+.userImgSmall{
+	width: 40px;
+	height: 40px;
+	float: left;
+}
+
+#userTtileName{
+	margin-left: 1px;
+}
+
+#userTtileName:hover,
+#userTtileName:focus{
+	background-color: #485563;
+}
+
+#userTitle{
+	padding: 0;
+	margin-left: 10px;
+}
+
+.image-box, .image-box-big{
+    background-color: transparent;
+    border: 1px solid #DF691A;
+    margin-top: 10px;
+    text-align: center;
+}
+
+.image-box{
+    width: 150px;
+    height: 150px;	
+}
+
+.image-box-big{
+    width: 425px;
+    height: 55px;	
+}
+
+.image-box>img, .image-box-big>img{
+	width: 100%;
+	height: 100%;
+}
+
+
+
+

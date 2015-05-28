@@ -1,0 +1,81 @@
+<div class="container" ng-if="loggedUser">
+	<header ng-include="'templates/partials/userHeader.html'"></header>
+	
+	<div class="jumbotron">
+	    <h1>Edit Profile</h1>
+	</div>
+
+	<div class="row">
+		<div class="col-lg-6">
+			<div class="well bs-component">
+				<form class="form-horizontal">
+					<div class="form-group">
+				      	<label for="name" class="col-lg-2 control-label">Name</label>
+				      	<div class="col-lg-10">
+				        	<input ng-model="userData.name" class="form-control" id="name" placeholder="Name" type="text" required />
+				      	</div>
+				    </div>
+				    <div class="form-group">
+				      	<label for="email" class="col-lg-2 control-label">Email</label>
+				      	<div class="col-lg-10">
+				        	<input ng-model="userData.email" class="form-control" id="email" placeholder="Email" type="text" required />
+				      	</div>
+				    </div>
+
+					<div class="form-group">
+						<label class="col-lg-2 control-label">Gender</label>
+						<div class="col-lg-10">
+        					<div class="radio">
+        						<label>
+            						<input name="gender" value="1" type="radio"> Male
+            					</label>
+        					</div>
+        					<div class="radio">
+        						<label>
+            						<input name="gender" value="2" type="radio"> Femail
+            					</label>
+        					</div>
+        					<div class="radio">
+        						<label>
+            						<input name="gender" value="0" type="radio" checked> Other
+            					</label>
+        					</div>
+        				</div>
+					</div>
+			
+
+
+				    <!-- Load user picture division -->
+					<div class="form-group">
+				      	<label for="user-image" class="col-lg-2 control-label">Image</label>
+				      	<div class="col-lg-10">
+				      		<input type="file" id="user-image" onchange="angular.element(this).scope().fileSelectedImg(this)" class="btn btn-default" value="Select file"/>
+							<div class="image-box">Image preview</div>
+							<p>
+								Allowed format: .jpg<br>
+								Limit: 128kb</p>
+							</p>
+				      	</div>
+				    </div>
+				    <!-- Load user cover division -->
+				    <div class="form-group">
+				      	<label for="user-wall-image" class="col-lg-2 control-label">Wall image</label>
+				      	<div class="col-lg-10">
+				      		<input type="file" id="user-wall-image" onchange="angular.element(this).scope().fileSelectedWallImg(this)" class="btn btn-default" value="Select file"/>
+							<div class="image-box-big">Image preview</div>
+							<p>
+								Allowed format: .jpg<br>
+								Limit: 1024kb</p>
+							</p>
+				      	</div>
+
+				    <div class="form-group">
+				      	<div class="col-lg-10 col-lg-offset-2">
+				        	<button ng-click="editProfile(userData)" class="btn btn-primary">Save Changes</button>
+				      	</div>
+				    </div>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>

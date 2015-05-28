@@ -1,8 +1,16 @@
 'use strict';
 
-app.controller('MainController', function ($scope, $window, authService, notifyService) {
+app.controller('MainController', function ($scope, $window, authService, userService, notifyService) {
 	$scope.anonymousUser = authService.isAnonymous();
 	$scope.loggedUser = authService.isLoggedIn();
+	
+	userService.getFullDataUser(
+		function success (data) {
+			$scope.user = data;
+		},
+		function error (err) {
+			console.error("Can not load user's data.");
+		});
 
     $scope.logout = function() {
 	    authService.logout();
