@@ -4,7 +4,9 @@ header h1, h4{
 	vertical-align: center;
 }
 
-.jumbotron{
+.jumbotron, 
+.post-content, 
+.friends>li{
 	border: solid 1px #DF691A;
 }
 
@@ -62,6 +64,39 @@ header h1, h4{
 	  padding: 0;
 }
 
+.news img{
+	width: 40px;
+	height: 40px;
+}
+
+.news .author-data{
+	display: inline-block;
+	vertical-align: middle;
+	margin-left: 10px;
+}
+
+.post-content{
+	margin: 10px 0 10px 0;
+	padding: 5px;
+}
+
+.post-buttons{
+	text-align: right;
+}
+
+.likes, .coments {
+	display: inline-block;
+	text-align: right;
+	margin-left: 10px;
+}
+
+.likes a {
+	background-image: url("../img/likeIt.png");
+	background-repeat: no-repeat;
+	display: inline-block;
+	width: 45px;
+}
+
 .friends{
 	margin: 0;
 }
@@ -72,7 +107,6 @@ header h1, h4{
 
 .friends>li{
 	margin-top: 10px;
-	border: 1px solid #DF691A;
 }
 
 .friends img{

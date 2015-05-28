@@ -1,6 +1,6 @@
 'use strict';
 
-app.controller('NewsController', function ($scope, userService, notifyService, PageSize) {
+app.controller('NewsController', function ($scope, userService, postService, notifyService, PageSize) {
 	// $scope.newsParams = {
 	// 	"StartPostId": null,			
 	// 	"PageSize": PageSize	
@@ -9,16 +9,28 @@ app.controller('NewsController', function ($scope, userService, notifyService, P
 	$scope.reloadAds = function () {
 		userService.getNewsFeedPage(
 			//$scope.newsParams,
-			function successFunction (data) {
+			function success (data) {
 				$scope.news = data;
-				console.log(data);
 			},
-			function errorFunction (error) {
-				notifyService.showError("Can not load news", error)
+			function error (error) {
+				$(".news").html("Can not load posts.");
 			}
 		);
 		
 	}
 
 	$scope.reloadAds();
+
+	$scope.likePost = function (id) {
+		postService.likePost(id,
+			function success() {
+				notifyService.showInfo("You liked this post.");
+			},
+			function (err) {
+				notifyService.showError("Like post failed.");
+			}
+		);
+	};
+
+
 });
