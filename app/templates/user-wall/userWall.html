@@ -1,0 +1,35 @@
+<div class="container" ng-if="loggedUser">
+	<header ng-include="'templates/user/userHeader.html'"></header>
+	<div class="jumbotron">
+	    <h1 id="userHeader">News Feed</h1>
+	</div> 
+
+	<div class="row">
+		<div class="col-lg-8" ng-controller="NewsController">
+			<ul class="news">
+				<li ng-repeat="post in news">
+					<div class="well bs-component">
+						<div>
+							<img src="{{post.author.profileImageData}}" alt="Friend photo">
+							<div class="author-data"><strong>{{post.author.name}}</strong><br>
+								{{post.date | date:'dd MMM yyyy HH:mm:ss'}} </div>
+						</div>
+						<div class="post-content">{{post.postContent}}</div>
+						<div class="post-buttons">
+							<div class="likes">
+								<strong>{{post.likesCount}}</strong>
+								<a href="#" onclick="">Like</a>
+							</div>
+							<div class="coments">
+								<strong>{{post.totalCommentsCount}}</strong>
+								<a href="#" onclick="">Coments</a>
+							</div>
+						</div>
+						
+					</div>
+				</li>
+			</ul>
+		</div>
+		<div ng-include="'templates/user/sidebarFriends.html'"></div>
+	</div>
+</div>

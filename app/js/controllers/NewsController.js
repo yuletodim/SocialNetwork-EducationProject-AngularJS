@@ -6,20 +6,21 @@ app.controller('NewsController', function ($scope, userService, postService, not
 	// 	"PageSize": PageSize	
 	// };
 
-	$scope.reloadAds = function () {
-		userService.getNewsFeedPage(
-			//$scope.newsParams,
-			function success (data) {
-				$scope.news = data;
-			},
-			function error (error) {
-				$(".news").html("Can not load posts.");
-			}
-		);
-		
-	}
+	userService.getNewsFeedPage(
+		//$scope.newsParams,
+		function success (data) {
+			$scope.news = data;
+		},
+		function error (error) {
+			$(".news").html("Can not load posts.");
+		}
+	);
 
-	$scope.reloadAds();
+	// $scope.reloadNews = function () {
+		
+	// }
+
+	// $scope.reloadNews();
 
 	$scope.likePost = function (id) {
 		postService.likePost(id,

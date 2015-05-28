@@ -4,7 +4,7 @@ app.controller('MainController', function ($scope, $window, authService, userSer
 	$scope.anonymousUser = authService.isAnonymous();
 	$scope.loggedUser = authService.isLoggedIn();
 	
-	userService.getFullDataUser(
+	userService.getFullDataCurrentUser(
 		function success (data) {
 			$scope.user = data;
 		},

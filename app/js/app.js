@@ -20,6 +20,11 @@ app.config(function ($routeProvider) {
 		controller: 'ChangePasswordController'
 	});
 
+	$routeProvider.when('/users/:username',{
+		templateUrl: 'templates/user/userWall.html',
+		controller: 'ChangePasswordController'		
+	})
+
 	$routeProvider.otherwise(
 		{ redirectTo: '/' }
 	);

@@ -6,5 +6,6 @@ app.controller('FriendsPreviewController', function ($scope, userService, notify
 		},
 		function error (err) {
 			$(".friends").html('<p>Can not load friends.</p>');
-		});
+		}
+	);
 });
