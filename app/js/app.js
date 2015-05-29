@@ -21,8 +21,8 @@ app.config(function ($routeProvider) {
 	});
 
 	$routeProvider.when('/users/:username',{
-		templateUrl: 'templates/user/userWall.html',
-		controller: 'ChangePasswordController'		
+		templateUrl: 'templates/user-wall/userWall.html',
+		controller: 'UserWallController'		
 	})
 
 	$routeProvider.otherwise(

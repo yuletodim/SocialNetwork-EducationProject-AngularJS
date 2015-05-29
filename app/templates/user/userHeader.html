@@ -1,10 +1,10 @@
 <nav class="navbar navbar-default">
   <div class="container-fluid">
     <div class="navbar-header">
-      <div class="collapse navbar-collapse" id="userTitle">
-        <img class="userImgSmall" ng-src="{{user.profileImageData}}" alt="userPhoto" ng-if="user.profileImageData">
-        <img class="userImgSmall" src="img/userImg.png" alt="userPhoto" ng-if="!user.profileImageData">
-        <a class="navbar-brand" id="userTtileName" href="#/users/:{{user.username}}">{{user.name}}</a>
+      <div class="collapse navbar-collapse" id="userTitle" data-username="{{currentUser.username}}">
+        <img class="userImgSmall" ng-src="{{currentUser.profileImageData}}" alt="userPhoto" ng-if="currentUser.profileImageData">
+        <img class="userImgSmall" src="img/userImg.png" alt="userPhoto" ng-if="!currentUser.profileImageData">
+        <a class="navbar-brand" id="userTtileName" href="#/users/{{currentUser.username}}">{{currentUser.name}}</a>
       </div>
     </div>
 
@@ -24,13 +24,13 @@
         <button type="submit" class="btn btn-default" ng-click="searchUser(username)">Search</button>
         <div id="search-results">
           <ul>
-            <li ng-repeat="result in searchResults">
+            <li ng-repeat="result in searchResults" data-username="{{result.username}}">
               <img ng-src="{{result.profileImageData}}" alt="User photo" ng-if="result.profileImageData">
               <img src="img/userImg.png" alt="User photo" ng-if="!result.profileImageData">
-              <a href="#/user/:username">{{result.name}}</a>
+              <a href="#/user/{{result.username}}">{{result.name}}</a>
             </li>
           </ul>
-          <p>{{resultsCount}} total results</p>
+          <p>{{resultsCount}} results total</p>
         </div>
       </form>
               

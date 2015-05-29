@@ -1,35 +1,52 @@
 <div class="container" ng-if="loggedUser">
 	<header ng-include="'templates/user/userHeader.html'"></header>
-	<div class="jumbotron">
-	    <h1 id="userHeader">News Feed</h1>
-	</div> 
 
-	<div class="row">
-		<div class="col-lg-8" ng-controller="NewsController">
-			<ul class="news">
-				<li ng-repeat="post in news">
-					<div class="well bs-component">
-						<div>
-							<img src="{{post.author.profileImageData}}" alt="Friend photo">
-							<div class="author-data"><strong>{{post.author.name}}</strong><br>
-								{{post.date | date:'dd MMM yyyy HH:mm:ss'}} </div>
-						</div>
-						<div class="post-content">{{post.postContent}}</div>
-						<div class="post-buttons">
-							<div class="likes">
-								<strong>{{post.likesCount}}</strong>
-								<a href="#" onclick="">Like</a>
-							</div>
-							<div class="coments">
-								<strong>{{post.totalCommentsCount}}</strong>
-								<a href="#" onclick="">Coments</a>
-							</div>
-						</div>
-						
-					</div>
-				</li>
-			</ul>
+	<!-- User wall data -->
+	<div  id="wall-img">
+	    <img ng-src="{{user.coverImageData}}" alt="Wall image" ng-if="user.coverImageData">
+	</div> 
+	<div id="user-data">
+    	<img src="img/userImg.png" alt="User photo" ng-if="!user.profileImageData" class="userImgBig">
+    	<img ng-src="{{user.profileImageData}}" alt="User photo" ng-if="user.profileImageData" class="userImgBig">
+    	<p>{{user.name}} </p>
+    	<div ng-if="user.username!= currentUser.username">
+    		<p ng-if="user.isFriend">- Friend</p>
+    		<p ng-if="user.hasPendingRequest">Send friend request</p>
+    	</div>
+    </div>
+
+    <!-- User wall news feed -->
+    <div class="row">
+		<div class="col-lg-8">
+			<!-- Only friends can see user's news -->
+			<div ng-include="'templates/user-wall/newsFeedUser.html'" ng-if="user.isFriend"></div>
+			<div ng-include="'templates/user-wall/newsFeedUser.html'" ng-if="user.username == currentUser.username"></div>
+
+			<!-- User that are not friends can not see other users news -->
+			<div class="well bs-component" ng-if="!user.isFriend">	
+				<div ng-if="user.username != currentUser.username">
+					Only friends can see {{user.name}}'s news.
+				</div>
+			</div>
 		</div>
-		<div ng-include="'templates/user/sidebarFriends.html'"></div>
+
+		
+		<div class="col-lg-4">
+			<!-- Only friends can see user's news -->
+			<div class="well bs-component">
+				<div ng-include="'templates/user/sidebarFriends.html'" ng-if="user.isFriend"></div>
+				<div ng-include="'templates/user/sidebarFriends.html'" ng-if="user.username == currentUser.username"></div>
+			</div>
+
+			<!-- User that are not friends can not see other users friends -->
+			<div class="well bs-component" ng-if="!user.isFriend">
+				<div ng-if="user.username != currentUser.username">
+					Only friends can see {{user.name}}'s friends.
+				</div>
+			</div>
+		</div>
 	</div>
+
+	<footer ng-include="'templates/partials/footer.html'"></footer>
 </div>
+

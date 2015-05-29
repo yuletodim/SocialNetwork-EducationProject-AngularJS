@@ -29,6 +29,24 @@ app.factory('userService', function ($http, baseServiceUrl, authService) {
 			$http(request).success(success).error(error);
 		},
 
+		getFriendFriendsPreview: function (username, success, error) {
+			var request = {
+				method: 'GET',
+				url: baseServiceUrl + '/api/users/' + username + '/friends/preview',
+				headers: authService.getAuthHeaders()
+			};
+			$http(request).success(success).error(error);			
+		},
+
+		getFriendFriends: function (argument) {
+			var request = {
+				method: 'GET',
+				url: baseServiceUrl + '/api/users/' + username + '/friends',
+				headers: authService.getAuthHeaders()
+			};
+			$http(request).success(success).error(error);
+		},
+
 		getFullDataCurrentUser: function (success, error) {
 			var request = {
 				method: 'GET',
@@ -67,6 +85,15 @@ app.factory('userService', function ($http, baseServiceUrl, authService) {
 				params: params
 			};
 			$http(request).success(success).error(error);
+		}, 
+
+		getUserData: function (username, success, error) {
+		 	var request = {
+		 		method: 'GET',
+		 		url: baseServiceUrl + '/api/users/' + username,
+		 		headers: authService.getAuthHeaders()
+		 	};
+		 	$http(request).success(success).error(error);
 		}
 
 	}

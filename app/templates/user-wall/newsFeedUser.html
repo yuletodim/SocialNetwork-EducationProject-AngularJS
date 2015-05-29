@@ -1,0 +1,26 @@
+<ul class="news">
+	<li ng-repeat="post in news">
+		<div class="well bs-component">
+			<div>
+				<img ng-src="img/userImg.png" alt="Friend photo" ng-if="!post.author.profileImageData">
+				<img ng-src="{{post.author.profileImageData}}" alt="Friend photo" ng-if="post.author.profileImageData">
+				<div class="author-data"><strong>{{post.author.name}}</strong><br>
+					{{post.date | date:'dd MMM yyyy HH:mm:ss'}} </div>
+			</div>
+			<div class="post-content">{{post.postContent}}</div>
+			<div class="post-buttons">
+				<div class="likes">
+					<strong>{{post.likesCount}}</strong>
+					<a href="#/users/{{user.username}}" ng-click="likePost(post.id)" id="like">Like</button>
+					<a href="#/users/{{user.username}}" ng-click="unlikePost(post.id)" id="unlike">Unlike</a>
+				</div>
+				<div class="coments">
+					<strong>{{post.totalCommentsCount}}</strong>
+					<a href="#" ng-click="">Coments</a>
+				</div>
+			</div>
+			
+		</div>
+	</li>
+</ul>
+

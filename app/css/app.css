@@ -1,3 +1,9 @@
+@media (min-width: 1200px) {
+  .container {
+    margin-left: 98px;
+  }
+}
+
 header h1, h4{
 	margin: 20px 0 20px 0;
 	text-align: center;
@@ -6,7 +12,8 @@ header h1, h4{
 
 .jumbotron, 
 .post-content, 
-.friends>li{
+.friends>li,
+#search-results {
 	border: solid 1px #DF691A;
 }
 
@@ -90,11 +97,21 @@ header h1, h4{
 	margin-left: 10px;
 }
 
-.likes a {
+#like{
 	background-image: url("../img/likeIt.png");
 	background-repeat: no-repeat;
 	display: inline-block;
 	width: 45px;
+	height: 20px;
+	margin-left: 3px;
+}
+
+#unlike{
+	background-image: url("../img/unlikeIt.png");
+	background-repeat: no-repeat;
+	display: inline-block;
+	width: 60px;
+	margin-left: 3px;
 }
 
 .friends{
@@ -180,11 +197,39 @@ header h1, h4{
 
 #search-results p{
 	text-decoration: underline;
+	font-style: italic;
 }
 
 #search-results a{
 	color: #485563;
 }
+
+#wall-img{
+	padding: 0;
+	width: 100%;
+	height: 10%;
+}
+
+#wall-img img{
+	width: 100%;
+	height: 150px;
+}
+
+.userImgBig{
+	width: 120px;
+	height: 120px;
+	margin-left: 100px;
+	margin-top: -100px;
+	margin-right: 15px;
+	display: inline-block;
+}
+
+#user-data p, #user-data div{
+	display: inline-block;
+	font-size: 20px;
+	font-weight: bold;
+}
+
 
 
 

@@ -6,7 +6,7 @@ app.controller('MainController', function ($scope, $window, authService, userSer
 	
 	userService.getFullDataCurrentUser(
 		function success (data) {
-			$scope.user = data;
+			$scope.currentUser = data;
 		},
 		function error (err) {
 			console.error("Can not load user's data.");

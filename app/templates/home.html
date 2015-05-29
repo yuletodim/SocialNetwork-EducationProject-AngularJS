@@ -14,7 +14,22 @@
 <!-- Load user home page for logged user -->
 <div class="container" ng-if="loggedUser">
 	<header ng-include="'templates/user/userHeader.html'"></header>
-	<div ng-include="'templates/user/newsFeed.html'"></div>
+
+	<div class="jumbotron">
+	    <h1 id="userHeader">News Feed</h1>
+	</div>
+	<div class="row">
+		<div class="col-lg-8" ng-controller="NewsController">
+			<div ng-include="'templates/user/newsFeedCurrentUser.html'"></div>
+		</div>
+		<div class="col-lg-4">
+			<div class="well bs-component" ng-controller="FriendsPreviewController">
+				<div ng-include="'templates/user/sidebarFriends.html'" ></div>
+			</div>
+		</div>	
+	</div>
+	
+	<footer ng-include="'templates/partials/footer.html'" ></footer>
 </div>
 
 
