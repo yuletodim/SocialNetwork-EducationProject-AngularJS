@@ -1,5 +1,5 @@
-<ul class="friends" ng-controller="FriendsController">
-	<h3>Friends - <a href="#/users/{{currentUser.username}}/friends">{{countFriends}}</a> total</h2>
+<ul class="friends" ng-controller="FriendFriendsController">
+	<h3>Friends - <a href="#/users/{{user.username}}/friends">{{countFriends}}</a> total</h2>
 	<li ng-repeat="friend in friendsPreview">
 		<img src="img/userImg.png" alt="userImage" ng-if="!friend.profileImageData">
 		<img ng-src="{{friend.profileImageData}}" alt="userImage" ng-if="friend.profileImageData">

@@ -25,6 +25,10 @@ app.config(function ($routeProvider) {
 		controller: 'UserWallController'		
 	})
 
+	$routeProvider.when('/users/:username/friends',{
+		templateUrl: 'templates/user/friends.html'	
+	})
+
 	$routeProvider.otherwise(
 		{ redirectTo: '/' }
 	);

@@ -29,21 +29,6 @@ app.controller('UserWallController', function ($scope, $routeParams, userService
 
 	$scope.loadFriendNews($routeParams.username);
 
-	$scope.loadFriendFriendsPreview = function (username) {
-		userService.getFriendFriendsPreview(
-			username,
-			function success (data) {
-				$scope.friendsPreview = data.friends;
-				$scope.countFriends = data.totalCount;
-			},
-			function error (err) {
-				notifyService.showError("Can not load friend's friends.");
-			}
-		);
-	};
-
-	$scope.loadFriendFriendsPreview($routeParams.username);
-
 	$scope.likePost = function (id) {
 		postService.likePost(
 			id,

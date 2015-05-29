@@ -34,7 +34,7 @@
 		<div class="col-lg-4">
 			<!-- Only friends can see user's news -->
 			<div class="well bs-component">
-				<div ng-include="'templates/user/sidebarFriends.html'" ng-if="user.isFriend"></div>
+				<div ng-include="'templates/user-wall/sidebarFriendFriends.html'" ng-if="user.isFriend"></div>
 				<div ng-include="'templates/user/sidebarFriends.html'" ng-if="user.username == currentUser.username"></div>
 			</div>
 
