@@ -1,10 +1,37 @@
-<div ng-app="myApp" ng-controller="customersCtrl">
+<div class="container" ng-if="loggedUser" ng-controller="ShowAllFriendsController">
+	<header ng-include="'templates/user/userHeader.html'"></header>
+	
+	<div class="jumbotron">
+	    <h1>{{user.name}} - friends ({{countFriends}} total)</h1>
+	    
+	</div>
 
-<table>
-  <tr ng-repeat="x in names">
-    <td>{{ x.Name }}</td>
-    <td>{{ x.Country }}</td>
-  </tr>
-</table>
+	<div class="row">
+		<div class="col-lg-4">
+			<div class="well bs-component">
+				<table>
+				  	<tr ng-repeat="friend in friendsPreview">
+				    	<td>
+				    		<img src="img/userImg.png" alt="userImage" ng-if="!friend.profileImageData">
+							<img ng-src="{{friend.profileImageData}}" alt="userImage" ng-if="friend.profileImageData">
+						</td>
+				    	<td><a href="#/users/{{friend.username}}">{{friend.name}}</a></td>
+				  	</tr>
+				</table>
+			</div>
+		</div>
+
+		<div class="col-lg-2">
+			<div class="form-group">
+	          <input class="form-control" placeholder="Search user" type="text" ng-model="name">
+	        </div>
+	        <button type="submit" class="btn btn-default" ng-click="searchUser(name)">Search</button>
+		</div>
+	</div>
+
 
 </div>
+
+
+
+		

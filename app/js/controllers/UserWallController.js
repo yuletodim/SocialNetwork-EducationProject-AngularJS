@@ -83,4 +83,17 @@ app.controller('UserWallController', function ($scope, $routeParams, userService
 			}
 		);
 	}
+
+	$scope.sendFriendRequest = function (username) {
+		userService.sendFriendRequest(
+			username,
+			function success () {
+				notifyService.showInfo("Friend request sent successfuly.");
+			},
+			function error (err) {
+				notifyService.showError("You couldn't send friend request.");
+			}
+		);
+	}
+
 });

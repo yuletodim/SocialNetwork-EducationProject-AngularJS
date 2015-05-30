@@ -12,8 +12,7 @@
     	<p>{{user.name}} </p>
     	<div ng-if="user.username!= currentUser.username">
     		<p ng-if="user.isFriend">- Friend</p>
-    		<p ng-if="user.hasPendingRequest"> - Sent friend request</p>
-    		<p ng-if="(!user.isFriend && user.username != currentUser.username)"> - Not friend</p>
+    		<p ng-if="(!user.isFriend && user.username != currentUser.username && !user.hasPendingRequest)"> - Not friend</p>
     	</div>
     </div>
 

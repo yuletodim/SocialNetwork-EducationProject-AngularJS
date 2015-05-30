@@ -11,7 +11,6 @@ app.controller('SearchController', function ($scope, userService, notifyService)
 				$scope.searchResults = data;
 				$scope.resultsCount = data.length;
 				$('#search-results').show();
-				console.log(data);
 			},
 			function error (err) {
 				notifyService.showError("Searching failed.");

@@ -38,7 +38,7 @@ app.factory('userService', function ($http, baseServiceUrl, authService) {
 			$http(request).success(success).error(error);			
 		},
 
-		getFriendFriends: function (argument) {
+		getFriendFriends: function (success, error) {
 			var request = {
 				method: 'GET',
 				url: baseServiceUrl + '/api/users/' + username + '/friends',
@@ -94,7 +94,35 @@ app.factory('userService', function ($http, baseServiceUrl, authService) {
 		 		headers: authService.getAuthHeaders()
 		 	};
 		 	$http(request).success(success).error(error);
-		}
+		},
+
+		sendFriendRequest: function (username, success, error) {
+		 	var request = {
+		 		method: 'POST',
+		 		url: baseServiceUrl + '/api/me/requests/' + username,
+		 		headers: authService.getAuthHeaders(),
+		 	};
+		 	$http(request).success(success).error(error);
+		},
+
+		answerFriendRequest: function (requestId, params, success, error) {
+			var request = {
+				method: 'PUT',
+				url: baseServiceUrl + '/api/me/requests/' + requestId,
+				headers: authService.getAuthHeaders(),
+				params: params
+			};
+			$http(request).success(success).error(error);
+		},
+
+		getFriendRequest: function (success, error) {
+		 	var request = {
+		 		method: 'GET',
+		 		url: baseServiceUrl + '/api/me/requests',
+		 		headers: authService.getAuthHeaders()
+		 	};
+		 	$http(request).success(success).error(error);
+		 }
 
 	}
 });

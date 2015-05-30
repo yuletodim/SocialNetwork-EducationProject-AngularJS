@@ -1,11 +1,18 @@
 <ul class="news">
 	<li ng-repeat="post in news">
 		<div class="well bs-component">
-			<div>
+			<div ng-mouseover="hoverEdit = true" ng-mouseleave="hoverEdit = false">
 				<img ng-src="img/userImg.png" alt="Friend photo" ng-if="!post.author.profileImageData">
 				<img ng-src="{{post.author.profileImageData}}" alt="Friend photo" ng-if="post.author.profileImageData">
 				<div class="author-data"><a href="#/users/{{post.author.username}}"><strong>{{post.author.name}}</strong></a><br>
 					{{post.date | date:'dd MMM yyyy HH:mm:ss'}} </div>
+				<div ng-show="hoverEdit" class="popup-box">
+					<img ng-src="img/userImg.png" alt="Friend photo" ng-if="!post.author.profileImageData">
+					<img ng-src="{{post.author.profileImageData}}" alt="Friend photo" ng-if="post.author.profileImageData">
+					<p>{{post.author.name}}</p>
+					<p ng-if="post.author.isFriend"> - Friend</p>
+					<button ng-if="(!post.author.isFriend && post.author.username != currentUser.username)" class="btn btn-primary btn-sm" ng-click="sendFriendRequest(post.author.username)">Invite</button>
+				</div>
 			</div>
 			<div class="post-content">{{post.postContent}}</div>
 			<div class="post-buttons">

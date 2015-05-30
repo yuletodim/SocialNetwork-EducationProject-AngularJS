@@ -1,7 +1,7 @@
 <nav class="navbar navbar-default">
   <div class="container-fluid">
     <div class="navbar-header">
-      <div class="collapse navbar-collapse" id="userTitle" data-username="{{currentUser.username}}">
+      <div class="collapse navbar-collapse" id="userTitle">
         <img class="userImgSmall" ng-src="{{currentUser.profileImageData}}" alt="userPhoto" ng-if="currentUser.profileImageData">
         <img class="userImgSmall" src="img/userImg.png" alt="userPhoto" ng-if="!currentUser.profileImageData">
         <a class="navbar-brand" id="userTtileName" href="#/users/{{currentUser.username}}">{{currentUser.name}}</a>
@@ -12,7 +12,27 @@
       <ul class="nav navbar-nav">
         <li class="active"><a href="#/">Home <span class="sr-only">(current)</span></a></li>
         <li><a href="#/logout" ng-click="logout()">Logout</a></li>
-        <li><a href="#" class="iconButtons" id="people"></a></li>
+        <li>
+          <a href="#" class="iconButtons" id="people" ng-click="showFriendRequests()"></a>
+          <span class="badge" id="request-note" ng-if="newRequest">{{countRequest}}</span>
+          <div id="requests-details">
+            <ul>
+            <li ng-repeat="result in dataRequest">
+              <div>
+                <img ng-src="{{result.user.profileImageData}}" alt="User photo" ng-if="result.user.profileImageData">
+                <img src="img/userImg.png" alt="User photo" ng-if="!result.user.profileImageData">
+                <span>{{result.user.name}}</span>
+              </div>
+              <div>
+                <button class="btn btn-primary btn-xs" ng-click="acceptFriendRequest(result.id)">Accept</button>
+                <button class="btn btn-primary btn-xs" ng-click="rejectFriendRequest(result.id)">Reject</button>
+              </div>
+              
+            </li>
+          </ul>
+          <p>{{countRequest}} results total</p>
+          </div>
+        </li>
         <li><a href="#/profile" class="iconButtons" id="settings"></a></li>
         <li><a href="#/profile/password" class="iconButtons" id="key"></a></li>
       </ul>
