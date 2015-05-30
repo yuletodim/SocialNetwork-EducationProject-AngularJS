@@ -1,6 +1,6 @@
 'use strict';
 
-app.controller('UserWallController', function ($scope, $routeParams, userService, postService, notifyService, PageSize) {
+app.controller('UserWallController', function ($scope, $routeParams, userService, postService, notifyService, authService, PageSize) {
 	$scope.getUsersData = function (username) {
 		userService.getUserData(
 			username,
@@ -14,6 +14,14 @@ app.controller('UserWallController', function ($scope, $routeParams, userService
 	};
 
 	$scope.getUsersData($routeParams.username);
+
+	$scope.hasRights = function (currentUser, otherUser) {
+		if(otherUser.username == currentUser.userName || otherUser.isFriend){
+			return true;
+		} else {
+			return false;
+		}
+	}
 
 	$scope.loadFriendNews = function(username) {
 		postService.loadFriendNews(
@@ -54,4 +62,25 @@ app.controller('UserWallController', function ($scope, $routeParams, userService
 			}
 		);
 	};
+
+	$scope.addNewPost = function (newPost) {
+		var usernamePost = $routeParams.username;
+		var data = {
+			"postContent": newPost,
+			"username": usernamePost
+		}
+
+		postService.addNewPost(
+			data,
+			function success () {
+				notifyService.showInfo("You published new post successfuly.");
+				setTimeout(
+					$scope.loadFriendNews($routeParams.username), 
+					2000);
+			},
+			function error (err) {
+				notifyService.showError("Publishing new post failed.");
+			}
+		);
+	}
 });

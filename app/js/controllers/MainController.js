@@ -18,7 +18,6 @@ app.controller('MainController', function ($scope, $window, authService, userSer
 	    setTimeout(function() { 
 	    	$window.location.reload('/'); 
 	    }, 2000);
-	   
     };
 
 });

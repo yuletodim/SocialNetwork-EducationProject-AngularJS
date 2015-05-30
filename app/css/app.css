@@ -66,12 +66,16 @@ header h1, h4{
 	background-position: left 5px;
 }
 
-.news, .friends, #search-results ul{
+.news, 
+.friends, 
+#search-results ul{
 	  list-style-type: none;
 	  padding: 0;
 }
 
-.news img, #search-results img{
+.news img, 
+#search-results img,
+.post-box img{
 	width: 40px;
 	height: 40px;
 }
@@ -234,7 +238,19 @@ header h1, h4{
 	font-weight: bold;
 }
 
+#post-box-buttons img, 
+#post-box-buttons p,
+#post-box-buttons button {
+	display: inline-block;
+}
 
+#post-box-buttons{
+	padding-top: 8px;
+}
+
+#post-box-buttons button{
+	float: right;
+}
 
 
 

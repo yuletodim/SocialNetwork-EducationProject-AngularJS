@@ -1,0 +1,9 @@
+<div class="post-box">
+	<textarea ng-model="newPost" class="form-control" rows="3" required ></textarea>
+	<div id="post-box-buttons">
+		<img ng-src="img/userImg.png" alt="User photo" ng-if="!currentUser.profileImageData">
+		<img ng-src="{{currentUser.profileImageData}}" alt="User photo" ng-if="currentUser.profileImageData">
+		<p>as <strong>{{currentUser.name}}</strong></p>
+		<button ng-click="addNewPost(newPost)" class="btn btn-primary">Submit</button>
+	</div>
+</div>

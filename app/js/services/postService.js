@@ -27,6 +27,16 @@ app.factory('postService', function ($http, baseServiceUrl, authService) {
 				headers: authService.getAuthHeaders()
 			};
 			$http(request).success(success).error(error);
+		}, 
+
+		addNewPost: function (data, success, error) {
+			var request = {
+				method: 'POST',
+				url: baseServiceUrl + '/api/posts',
+				headers: authService.getAuthHeaders(),
+				data: data
+			};
+			$http(request).success(success).error(error);
 		}
 	}
 });

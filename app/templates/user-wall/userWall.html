@@ -12,7 +12,8 @@
     	<p>{{user.name}} </p>
     	<div ng-if="user.username!= currentUser.username">
     		<p ng-if="user.isFriend">- Friend</p>
-    		<p ng-if="user.hasPendingRequest">Send friend request</p>
+    		<p ng-if="user.hasPendingRequest"> - Sent friend request</p>
+    		<p ng-if="(!user.isFriend && user.username != currentUser.username)"> - Not friend</p>
     	</div>
     </div>
 
@@ -20,29 +21,31 @@
     <div class="row">
 		<div class="col-lg-8">
 			<!-- Only friends can see user's news -->
-			<div ng-include="'templates/user-wall/newsFeedUser.html'" ng-if="user.isFriend"></div>
-			<div ng-include="'templates/user-wall/newsFeedUser.html'" ng-if="user.username == currentUser.username"></div>
-
-			<!-- User that are not friends can not see other users news -->
-			<div class="well bs-component" ng-if="!user.isFriend">	
-				<div ng-if="user.username != currentUser.username">
-					<strong>Only friends can see {{user.name}}'s news.</strong>
+			<div ng-if="(user.isFriend || user.username == currentUser.username)">
+				<div ng-include="'templates/user-wall/newsFeedUser.html'"></div>
 			</div>
+			
+			<!-- User that are not friends can not see other users news -->
+			<div class="well bs-component" ng-if="(!user.isFriend && user.username != currentUser.username)">	
+				<strong>Only friends can see {{user.name}}'s news.</strong>
 			</div>
 		</div>
 
 		
 		<div class="col-lg-4">
+			<!-- Post box with for adding new post only for friends -->
+			<div class="well bs-component" ng-if="(user.isFriend || user.username == currentUser.username)">
+				<div ng-include="'templates/user-wall/postBox.html'"></div>
+			</div>
+
 			<div class="well bs-component">
 				<!-- Only friends can see user's news -->
 				<div ng-include="'templates/user-wall/sidebarFriendFriends.html'" ng-if="user.isFriend"></div>
 				<div ng-include="'templates/user/sidebarFriends.html'" ng-if="user.username == currentUser.username"></div>
 
 				<!-- User that are not friends can not see other users friends -->
-				<div ng-if="!user.isFriend">
-					<div ng-if="user.username != currentUser.username">
-						<strong>Only friends can see {{user.name}}'s friends.</strong>
-					</div>
+				<div ng-if="(!user.isFriend && user.username != currentUser.username)">
+					<strong>Only friends can see {{user.name}}'s friends.</strong>
 				</div>
 			</div>
 
