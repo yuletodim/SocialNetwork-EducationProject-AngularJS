@@ -82,6 +82,10 @@ header h1, h4{
 	margin-left: 10px;
 }
 
+.author-data a{
+	color: white;
+}
+
 .post-content{
 	margin: 10px 0 10px 0;
 	padding: 5px;

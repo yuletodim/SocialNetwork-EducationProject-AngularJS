@@ -4,9 +4,10 @@
 	<!-- User wall data -->
 	<div  id="wall-img">
 	    <img ng-src="{{user.coverImageData}}" alt="Wall image" ng-if="user.coverImageData">
+	    <img src="img/wall-img-default.jpg" alt="Wall image" ng-if="!user.coverImageData">
 	</div> 
 	<div id="user-data">
-    	<img src="img/userImg.png" alt="User photo" ng-if="!user.profileImageData" class="userImgBig">
+    	<img src="img/userImgBig.png" alt="User photo" ng-if="!user.profileImageData" class="userImgBig">
     	<img ng-src="{{user.profileImageData}}" alt="User photo" ng-if="user.profileImageData" class="userImgBig">
     	<p>{{user.name}} </p>
     	<div ng-if="user.username!= currentUser.username">
@@ -25,25 +26,26 @@
 			<!-- User that are not friends can not see other users news -->
 			<div class="well bs-component" ng-if="!user.isFriend">	
 				<div ng-if="user.username != currentUser.username">
-					Only friends can see {{user.name}}'s news.
-				</div>
+					<strong>Only friends can see {{user.name}}'s news.</strong>
+			</div>
 			</div>
 		</div>
 
 		
 		<div class="col-lg-4">
-			<!-- Only friends can see user's news -->
 			<div class="well bs-component">
+				<!-- Only friends can see user's news -->
 				<div ng-include="'templates/user-wall/sidebarFriendFriends.html'" ng-if="user.isFriend"></div>
 				<div ng-include="'templates/user/sidebarFriends.html'" ng-if="user.username == currentUser.username"></div>
-			</div>
 
-			<!-- User that are not friends can not see other users friends -->
-			<div class="well bs-component" ng-if="!user.isFriend">
-				<div ng-if="user.username != currentUser.username">
-					Only friends can see {{user.name}}'s friends.
+				<!-- User that are not friends can not see other users friends -->
+				<div ng-if="!user.isFriend">
+					<div ng-if="user.username != currentUser.username">
+						<strong>Only friends can see {{user.name}}'s friends.</strong>
+					</div>
 				</div>
 			</div>
+
 		</div>
 	</div>
 
