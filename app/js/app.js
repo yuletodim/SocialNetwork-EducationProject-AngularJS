@@ -3,7 +3,6 @@
 var app = angular.module('SocialNetworkApp', ['ngRoute', 'ngResource']);
 
 app.constant('baseServiceUrl', 'http://softuni-social-network.azurewebsites.net');
-app.constant('PageSize', 5);
 
 app.config(function ($routeProvider) {
 	$routeProvider.when('/', {
@@ -33,7 +32,6 @@ app.config(function ($routeProvider) {
 		templateUrl: 'templates/partials/editPost.html',
 		controller: 'EditPostController'	
 	})
-
 
 	$routeProvider.otherwise(
 		{ redirectTo: '/' }
