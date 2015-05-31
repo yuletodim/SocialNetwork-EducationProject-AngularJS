@@ -102,6 +102,7 @@ app.controller('NewsController', function ($scope, userService, postService, not
 			function success () {
 				notifyService.showInfo("You add comment successfuly.");
 				$scope.loadNews();
+				$scope.closePostComents();
 			},
 			function error (err) {
 				notifyService.showError("Add comment failed.");

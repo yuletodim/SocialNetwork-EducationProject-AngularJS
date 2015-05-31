@@ -137,6 +137,7 @@ app.controller('UserWallController', function ($scope, $routeParams, userService
 			function success () {
 				notifyService.showInfo("You add comment successfuly.");
 				$scope.loadUserNews($routeParams.username);
+				$scope.closePostComents();
 			},
 			function error (err) {
 				notifyService.showError("Add comment failed.");
