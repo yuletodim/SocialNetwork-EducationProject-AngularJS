@@ -29,6 +29,12 @@ app.config(function ($routeProvider) {
 		templateUrl: 'templates/friends.html'	
 	})
 
+	$routeProvider.when('/posts/:id',{
+		templateUrl: 'templates/partials/editPost.html',
+		controller: 'EditPostController'	
+	})
+
+
 	$routeProvider.otherwise(
 		{ redirectTo: '/' }
 	);

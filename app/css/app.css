@@ -14,7 +14,8 @@ header h1, h4{
 .post-content, 
 .friends>li,
 #search-results,
-#requests-details {
+#requests-details,
+.edit-post-box {
 	border: solid 1px #DF691A;
 }
 
@@ -254,6 +255,10 @@ header h1, h4{
 	font-weight: bold;
 }
 
+.post-author-data{
+	width: 250px;
+}
+
 #post-box-buttons img, 
 #post-box-buttons p,
 #post-box-buttons button {
@@ -313,3 +318,18 @@ header h1, h4{
  	text-decoration: none;
  }
 
+.edit-post{
+	margin-top: 8px;
+}
+
+.edit-post-box{
+	position: absolute;
+	left: 50%;
+	width: 300px;
+	padding: 15px;
+	background-color: #4e5d6c;
+}
+
+.edit-post-box button{
+	margin-top: 8px;
+}

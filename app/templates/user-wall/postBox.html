@@ -1,5 +1,5 @@
 <div class="post-box">
-	<textarea ng-model="newPost" class="form-control" rows="3" required ></textarea>
+	<textarea ng-model="newPost" class="form-control" rows="3" required id="new-post"></textarea>
 	<div id="post-box-buttons">
 		<img ng-src="img/userImg.png" alt="User photo" ng-if="!currentUser.profileImageData">
 		<img ng-src="{{currentUser.profileImageData}}" alt="User photo" ng-if="currentUser.profileImageData">

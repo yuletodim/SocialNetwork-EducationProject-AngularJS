@@ -41,7 +41,7 @@ app.controller('UserWallController', function ($scope, $routeParams, userService
 		postService.likePost(
 			id,
 			function success() {
-				$scope.loadFriendNews($routeParams.username);
+				$scope.loadUserNews($routeParams.username);
 				notifyService.showInfo("You liked this post.");
 			},
 			function (err) {
@@ -54,7 +54,7 @@ app.controller('UserWallController', function ($scope, $routeParams, userService
 		postService.unlikePost(
 			id,
 			function success() {
-				$scope.loadFriendNews($routeParams.username);
+				$scope.loadUserNews($routeParams.username);
 				notifyService.showInfo("You disliked this post.");
 			},
 			function (err) {
@@ -74,9 +74,8 @@ app.controller('UserWallController', function ($scope, $routeParams, userService
 			data,
 			function success () {
 				notifyService.showInfo("You published new post successfuly.");
-				setTimeout(
-					$scope.loadUserNews($routeParams.username), 
-					2000);
+				$scope.loadUserNews($routeParams.username);
+				$("#new-post").val("");
 			},
 			function error (err) {
 				notifyService.showError("Publishing new post failed.");
@@ -95,5 +94,18 @@ app.controller('UserWallController', function ($scope, $routeParams, userService
 			}
 		);
 	}
+
+	$scope.deletePost = function (postId) {
+		postService.deletePost(
+			postId,
+			function success () {
+				notifyService.showInfo("You deleted the post successfuly");
+				$scope.loadUserNews($routeParams.username);
+			},
+			function error (err) {
+				notifyService.showError("Delete post failed.");
+			}
+		);
+	};
 
 });

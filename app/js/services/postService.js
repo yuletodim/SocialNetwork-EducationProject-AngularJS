@@ -37,6 +37,35 @@ app.factory('postService', function ($http, baseServiceUrl, authService) {
 				data: data
 			};
 			$http(request).success(success).error(error);
-		}
+		},
+
+		editPost: function (postData, success, error) {
+			var request = {
+				method: 'PUT',
+				url: baseServiceUrl + '/api/Posts/' + postData.id,
+				headers: authService.getAuthHeaders(),
+				data: { "postContent" : postData.postContent}
+			};
+			$http(request).success(success).error(error);
+		},
+
+		deletePost: function (postId, success, error) {
+			var request = {
+				method: 'DELETE',
+				url: baseServiceUrl + '/api/Posts/' + postId,
+				headers: authService.getAuthHeaders(),
+			};
+			$http(request).success(success).error(error);
+		},
+
+		getPostById: function (id, success, error) {
+			var request = {
+				method: 'GET',
+				url: baseServiceUrl + '/api/Posts/' + id,
+				headers: authService.getAuthHeaders()
+			};
+			$http(request).success(success).error(error);
+		},
+		
 	}
 });

@@ -1,0 +1,30 @@
+<div class="container" ng-if="loggedUser">
+	<header ng-include="'templates/user/userHeader.html'"></header>
+	
+	<div class="jumbotron">
+	    <h1>Edit Post</h1>
+	</div>
+
+	<div class="row">
+		<div class="col-lg-6">
+			<div class="well bs-component">
+				<form class="form-horizontal">
+					<div class="form-group">
+				      	<label for="newPostContent" class="col-lg-2 control-label">New post content</label>
+				      	<div class="col-lg-10">
+				      		<textarea class="form-control" rows="3" required ng-model="postData.postContent"></textarea>
+				      	</div>
+				    </div>
+
+					<div class="form-group">
+				      	<div class="col-lg-10 col-lg-offset-2">
+				        	<button ng-click="editPost(postData)" class="btn btn-primary">Edit post</button>
+				        	<a href="#/" class="btn btn-default">Cancel</a>
+				      	</div>
+				    </div>
+				</form>
+			</div>
+		</div>
+	</div>
+	<footer ng-include="'templates/partials/footer.html'"></footer>
+</div>

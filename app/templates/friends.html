@@ -2,7 +2,7 @@
 	<header ng-include="'templates/user/userHeader.html'"></header>
 	
 	<!-- Only friends can see user's friends full list -->
-	<div  ng-if="user.isFriend">
+	<div  ng-if="(user.isFriend || user.username == currentUser.username)">
 		<div class="jumbotron">
 		    <h1>{{user.name}} - friends ({{countFriends}} total)</h1>
 		</div>
@@ -23,15 +23,15 @@
 
 			<div class="col-lg-2">
 				<div class="form-group">
-		          <input class="form-control" placeholder="Search user" type="text" ng-model="name">
+		          <input class="form-control" placeholder="Search user" type="text" ng-model="filters.name">
 		        </div>
-		        <button type="submit" class="btn btn-default" ng-click="searchUser(name)">Search</button>
+		        <button type="submit" class="btn btn-default" ng-click="clearFilter()">Clear filter</button>
 			</div>
 		</div>
 	</div>
 
 	<!-- Users that are not friends can not see other user's friends full list -->
-	<div ng-if="!user.isFriend">
+	<div ng-if="(!user.isFriend && user.username != currentUser.username)">
 		<div class="jumbotron">
 		    <h1>{{user.name}} - friends</h1>
 		</div>
