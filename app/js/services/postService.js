@@ -66,6 +66,24 @@ app.factory('postService', function ($http, baseServiceUrl, authService) {
 			};
 			$http(request).success(success).error(error);
 		},
-		
+
+		getPostComent: function (id, success, error) {
+			var request = {
+				method: 'GET',
+				url: baseServiceUrl + '/api/posts/' + id + '/comments',
+				headers: authService.getAuthHeaders()
+			};
+			$http(request).success(success).error(error);
+		},
+
+		addComment: function (commentData, success, error) {
+			var request = {
+				method: 'POST',
+				url: baseServiceUrl + '/api/posts/' + commentData.id + '/comments',
+				headers: authService.getAuthHeaders(),
+				data: { "commentContent" : commentData.commentContent}
+			};
+			$http(request).success(success).error(error);
+		}
 	}
 });

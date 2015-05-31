@@ -108,4 +108,40 @@ app.controller('UserWallController', function ($scope, $routeParams, userService
 		);
 	};
 
+	$scope.commentData = {};
+
+	$scope.getPostComent = function (id) {
+		postService.getPostComent(
+			id,
+			function success (data, id) {
+				$scope.coments = data;
+				$scope.commentData.id = id;
+				console.log($scope.commentData.id);
+				$("#coments-box").show();
+				$scope.loadUserNews($routeParams.username);
+			},
+			function error (err) {
+				notifyService.showError("Load coments failed.");
+			}
+		);
+	}
+
+	$scope.closePostComents = function () {
+		$("#coments-box").hide();
+	}
+
+	$scope.addComment = function (commentData) {
+		postService.addComment(
+			commentData,
+			function success () {
+				notifyService.showInfo("You add comment successfuly.");
+				$scope.loadUserNews($routeParams.username);
+			},
+			function error (err) {
+				notifyService.showError("Add comment failed.");
+			}
+		);
+
+	}
+
 });

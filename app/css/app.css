@@ -15,7 +15,8 @@ header h1, h4{
 .friends>li,
 #search-results,
 #requests-details,
-.edit-post-box {
+.edit-post-box,
+#coments-box {
 	border: solid 1px #DF691A;
 }
 
@@ -71,7 +72,8 @@ header h1, h4{
 .news, 
 .friends, 
 #search-results ul,
-#requests-details ul{
+#requests-details ul,
+#coments-box ul{
 	  list-style-type: none;
 	  padding: 0;
 }
@@ -79,12 +81,14 @@ header h1, h4{
 .news img, 
 #search-results img,
 #requests-details img,
-.post-box img{
+.post-box img,
+#coments-box img{
 	width: 40px;
 	height: 40px;
 }
 
-.news .author-data{
+.news .author-data,
+#coments-box .author-data{
 	display: inline-block;
 	vertical-align: middle;
 	margin-left: 10px;
@@ -332,4 +336,36 @@ header h1, h4{
 
 .edit-post-box button{
 	margin-top: 8px;
+}
+
+#coments-box{
+	display: none;
+	position: absolute;
+	left: 40%;
+	top: 10%;
+	width: 50%;
+	background-color: white;
+	padding: 10px;
+	color: #485563;
+	font-size: 12px;
+}
+
+#coments-box div{
+	display: inline-block;
+	height: 40px;
+	margin-left: 10px
+}
+
+#coments-box li{
+	border-bottom: 1px solid #DF691A;
+}
+
+#coments-box img{
+	vertical-align: middle;
+	margin-bottom: 15px
+}
+
+#coments-box input{
+	width: 100%;
+	margin-bottom: 8px;
 }

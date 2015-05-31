@@ -21,9 +21,9 @@
 					<a href="#/users/{{user.username}}" ng-click="likePost(post.id)" id="like">Like</button>
 					<a href="#/users/{{user.username}}" ng-click="unlikePost(post.id)" id="unlike">Unlike</a>
 				</div>
-				<div class="coments">
+				<div class="coments" ng-if="(post.author.username == currentUser.username || post.author.isFriend)">
 					<strong>{{post.totalCommentsCount}}</strong>
-					<a href="#/users/{{user.username}}" ng-click="">Coments</a>
+					<a href="#/users/{{user.username}}" ng-click="getPostComent(post.id)">Coments</a>
 				</div>
 				<div class="edit-post" ng-if="(post.author.username == currentUser.username || currentUser.username == user.username)">
 					<a href="#/posts/{{post.id}}" class="btn btn-primary btn-xs">Edit post</a>
@@ -34,4 +34,20 @@
 		</div>
 	</li>
 </ul>
+
+<div id="coments-box">
+	<ul ng-repeat="coment in coments" ng-if="coments.length != 0">
+		<li>
+			<img ng-src="img/userImg.png" alt="Friend photo" ng-if="!coment.author.profileImageData">
+			<img ng-src="{{coment.author.profileImageData}}" alt="Friend photo" ng-if="coment.author.profileImageData">
+			<div>
+				<p><strong><a href="#/users/{{coment.author.username}}">{{coment.author.name}}</a> - {{coment.date | date:'dd MMM yyyy HH:mm:ss'}}</strong></p>
+				<p>{{coment.commentContent}}</p>
+			</div>
+		</li>
+	</ul>
+	<input type="text" ng-model="commentData.commentContent">
+	<button class="btn btn-primary btn-xs" ng-click="addComment(commentData)">Add coment</button>
+	<button class="btn btn-primary btn-xs" ng-click="closePostComents()">Close</button>
+</div>
 
