@@ -20,7 +20,7 @@ app.factory('postService', function ($http, baseServiceUrl, authService) {
 			$http(request).success(success).error(error);
 		},
 
-		loadFriendNews: function (username, success, error) {
+		loadUserNews: function (username, success, error) {
 			var request = {
 				method: 'GET',
 				url: baseServiceUrl + '/api/users/' + username + '/wall?StartPostId=&PageSize=5',

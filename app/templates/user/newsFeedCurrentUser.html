@@ -16,7 +16,7 @@
 			</div>
 			<div class="post-content">{{post.postContent}}</div>
 			<div class="post-buttons">
-				<div class="likes">
+				<div class="likes" ng-if="(post.author.isFriend || post.author.username == currentUser.username)">
 					<strong>{{post.likesCount}}</strong>
 					<a href="#" ng-click="likePost(post.id)" id="like">Like</button>
 					<a href="#" ng-click="unlikePost(post.id)" id="unlike">Unlike</a>

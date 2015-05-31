@@ -81,7 +81,7 @@ app.controller('MainController', function ($scope, $window, authService, userSer
 	    notifyService.showInfo("You logged out.");
 	    setTimeout(function() { 
 	    	$window.location.reload('/'); 
-	    }, 2000);
+	    }, 1000);
     };
 
 });

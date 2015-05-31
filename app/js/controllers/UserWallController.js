@@ -23,8 +23,8 @@ app.controller('UserWallController', function ($scope, $routeParams, userService
 		}
 	}
 
-	$scope.loadFriendNews = function(username) {
-		postService.loadFriendNews(
+	$scope.loadUserNews = function(username) {
+		postService.loadUserNews(
 			username,
 			function success (data) {
 				$scope.news = data;
@@ -35,7 +35,7 @@ app.controller('UserWallController', function ($scope, $routeParams, userService
 		);
 	};
 
-	$scope.loadFriendNews($routeParams.username);
+	$scope.loadUserNews($routeParams.username);
 
 	$scope.likePost = function (id) {
 		postService.likePost(
@@ -75,7 +75,7 @@ app.controller('UserWallController', function ($scope, $routeParams, userService
 			function success () {
 				notifyService.showInfo("You published new post successfuly.");
 				setTimeout(
-					$scope.loadFriendNews($routeParams.username), 
+					$scope.loadUserNews($routeParams.username), 
 					2000);
 			},
 			function error (err) {

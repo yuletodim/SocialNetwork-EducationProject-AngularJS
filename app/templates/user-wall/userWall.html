@@ -12,7 +12,8 @@
     	<p>{{user.name}} </p>
     	<div ng-if="user.username!= currentUser.username">
     		<p ng-if="user.isFriend">- Friend</p>
-    		<p ng-if="(!user.isFriend && user.username != currentUser.username && !user.hasPendingRequest)"> - Not friend</p>
+    		<p ng-if="(!user.isFriend && user.username != currentUser.username)"> - Not friend </p>
+    		<button ng-if="(!user.isFriend && user.username != currentUser.username)" class="btn btn-primary btn-sm" ng-click="sendFriendRequest(user.username)">Invite</button>
     	</div>
     </div>
 

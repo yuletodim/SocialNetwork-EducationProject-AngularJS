@@ -18,7 +18,7 @@ app.controller('ShowAllFriendsController', function ($scope, $routeParams, userS
 	var currentUser = authService.getCurrentUser();
 	var currentUsername = currentUser.userName;
 
-	if($routeParams.username != currentUsername) {
+	if($routeParams.username != currentUsername ) {
 		$scope.loadFriendFriendsPreview = function (username) {
 			userService.getFriendFriendsPreview(
 				username,
@@ -27,7 +27,7 @@ app.controller('ShowAllFriendsController', function ($scope, $routeParams, userS
 					$scope.countFriends = data.totalCount;
 				},
 				function error (err) {
-					notifyService.showError("Can not load friend's friends.");
+					$(".well bs-component").html("Can not load friend's friends.");
 				}
 			);
 		};
@@ -40,9 +40,10 @@ app.controller('ShowAllFriendsController', function ($scope, $routeParams, userS
 				$scope.countFriends = data.totalCount;
 			},
 			function error (err) {
-				notifyService.showError("Can not load friend's friends.");
+				$(".well bs-component").html("Can not load friend's friends.");
 			}
 		);
 	}
 	
+
 });

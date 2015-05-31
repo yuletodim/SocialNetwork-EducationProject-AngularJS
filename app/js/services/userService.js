@@ -6,7 +6,6 @@ app.factory('userService', function ($http, baseServiceUrl, authService) {
 				method: 'GET',
 				url: baseServiceUrl + '/api/me/feed?StartPostId=&PageSize=5',
 				headers: authService.getAuthHeaders(),
-				//params: params
 			};
 			$http(request).success(success).error(error);
 		},

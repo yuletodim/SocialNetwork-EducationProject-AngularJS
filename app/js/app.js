@@ -26,10 +26,11 @@ app.config(function ($routeProvider) {
 	})
 
 	$routeProvider.when('/users/:username/friends',{
-		templateUrl: 'templates/user/friends.html'	
+		templateUrl: 'templates/friends.html'	
 	})
 
 	$routeProvider.otherwise(
 		{ redirectTo: '/' }
 	);
 });
+
