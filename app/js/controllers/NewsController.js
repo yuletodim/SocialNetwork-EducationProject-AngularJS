@@ -74,12 +74,13 @@ app.controller('NewsController', function ($scope, userService, postService, not
 
 	$scope.commentData = {};
 
-	$scope.getPostComent = function (id) {
+	$scope.getPostComent = function (idPost) {
+		$scope.commentData.id = idPost;
+
 		postService.getPostComent(
-			id,
-			function success (data, id) {
+			idPost,
+			function success (data) {
 				$scope.coments = data;
-				$scope.commentData.id = id;
 				console.log($scope.commentData.id);
 				$("#coments-box").show();
 				$scope.loadNews();
@@ -95,6 +96,7 @@ app.controller('NewsController', function ($scope, userService, postService, not
 	}
 
 	$scope.addComment = function (commentData) {
+		console.log(commentData);
 		postService.addComment(
 			commentData,
 			function success () {

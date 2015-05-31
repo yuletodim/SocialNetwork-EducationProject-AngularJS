@@ -110,12 +110,13 @@ app.controller('UserWallController', function ($scope, $routeParams, userService
 
 	$scope.commentData = {};
 
-	$scope.getPostComent = function (id) {
+	$scope.getPostComent = function (idPost) {
+		$scope.commentData.id = idPost;
+		console.log($scope.commentData.id);
 		postService.getPostComent(
-			id,
-			function success (data, id) {
+			idPost,
+			function success (data) {
 				$scope.coments = data;
-				$scope.commentData.id = id;
 				console.log($scope.commentData.id);
 				$("#coments-box").show();
 				$scope.loadUserNews($routeParams.username);
