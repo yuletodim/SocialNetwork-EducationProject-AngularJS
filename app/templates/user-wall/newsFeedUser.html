@@ -23,7 +23,7 @@
 				</div>
 				<div class="coments">
 					<strong>{{post.totalCommentsCount}}</strong>
-					<a href="#" ng-click="">Coments</a>
+					<a href="#/users/{{user.username}}" ng-click="">Coments</a>
 				</div>
 				<div class="edit-post" ng-if="(post.author.username == currentUser.username || currentUser.username == user.username)">
 					<a href="#/posts/{{post.id}}" class="btn btn-primary btn-xs">Edit post</a>

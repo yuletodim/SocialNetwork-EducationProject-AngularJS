@@ -18,12 +18,12 @@
 			<div class="post-buttons">
 				<div class="likes" ng-if="(post.author.isFriend || post.author.username == currentUser.username)">
 					<strong>{{post.likesCount}}</strong>
-					<a href="#" ng-click="likePost(post.id)" id="like">Like</button>
-					<a href="#" ng-click="unlikePost(post.id)" id="unlike">Unlike</a>
+					<a href="#/" ng-click="likePost(post.id)" id="like">Like</button>
+					<a href="#/" ng-click="unlikePost(post.id)" id="unlike">Unlike</a>
 				</div>
 				<div class="coments">
 					<strong>{{post.totalCommentsCount}}</strong>
-					<a href="#" ng-click="">Coments</a>
+					<a href="#/" ng-click="">Coments</a>
 				</div>
 				<div class="edit-post" ng-if="(post.author.username == currentUser.username)">
 					<a href="#/posts/{{post.id}}" class="btn btn-primary btn-xs">Edit post</a>
