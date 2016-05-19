@@ -5,7 +5,9 @@ var app = angular.module('SocialNetworkApp', ['ngRoute', 'ngResource']);
 app.constant('baseServiceUrl', 'http://softuni-social-network.azurewebsites.net');
 app.constant('PageSize', 5);
 
-app.config(function ($routeProvider) {
+app.config(function ($routeProvider, $locationProvider) {
+	$locationProvider.html5Mode(true);
+
 	$routeProvider.when('/', {
 		templateUrl: 'templates/home.html',
 	});

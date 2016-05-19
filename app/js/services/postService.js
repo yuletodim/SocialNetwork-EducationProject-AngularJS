@@ -1,7 +1,7 @@
 'use strict';
 
 app.factory('postService', function ($http, baseServiceUrl, authService) {
-	return{
+	return {
 		likePost: function (id, success, error) {
 			var request = {
 				method: 'POST',

@@ -4,7 +4,7 @@ app.factory('userService', function ($http, baseServiceUrl, authService) {
 		getNewsFeedPage: function (success, error) {
 			var request = {
 				method: 'GET',
-				url: baseServiceUrl + '/api/me/feed?StartPostId=&PageSize=5',
+				url: baseServiceUrl + '/api/me/feed?StartPostId=0&PageSize=5',
 				headers: authService.getAuthHeaders(),
 			};
 			$http(request).success(success).error(error);
@@ -122,7 +122,6 @@ app.factory('userService', function ($http, baseServiceUrl, authService) {
 		 	};
 		 	$http(request).success(success).error(error);
 		 }
-
 	}
 });
 
